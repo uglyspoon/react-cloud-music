@@ -6,10 +6,10 @@ export const CHANGE_RANK_LIST = 'home/rank/CHANGE_RANK_LIST';
 export const CHANGE_LOADING = 'home/rank/CHANGE_LOADING';
 
 //actionCrreator
-const changeRankList = (data) => ({
+const changeRankList = data => ({
   type: CHANGE_RANK_LIST,
-  data: fromJS(data)
-})
+  data: fromJS(data),
+});
 
 export const getRankList = () => {
   return dispatch => {
@@ -17,23 +17,23 @@ export const getRankList = () => {
       let list = data && data.list;
       dispatch(changeRankList(list));
       dispatch(changeLoading(false));
-    })
-  }
-}
+    });
+  };
+};
 
-const changeLoading = (data) => ({
+const changeLoading = data => ({
   type: CHANGE_LOADING,
-  data
-})
+  data,
+});
 
 //reducer
 const defaultState = fromJS({
   rankList: [],
-  loading: true
-})
+  loading: true,
+});
 
 const reducer = (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case CHANGE_RANK_LIST:
       return state.set('rankList', action.data);
     case CHANGE_LOADING:
@@ -41,6 +41,6 @@ const reducer = (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};
 
 export { reducer };

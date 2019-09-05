@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import { trimPhone } from "../../../../../../api/utils";
+import React, { useRef, useEffect } from 'react';
+import { trimPhone } from '../../../../../../api/utils';
 
 const StepOne = props => {
   const { onChangePhone, onClickNext, phone } = props;
@@ -9,10 +9,10 @@ const StepOne = props => {
   });
   return (
     <>
-      <p className="input">
+      <p className='input'>
         +86
         <input
-          type="text"
+          type='text'
           onChange={onChangePhone}
           value={phone}
           ref={inputRef}
@@ -21,7 +21,7 @@ const StepOne = props => {
       <hr />
       <span
         className={`LoginBtn 
-          ${trimPhone(phone).length < 11 && "disabled"}`}
+          ${trimPhone(phone).length < 11 && 'disabled'}`}
         onClick={onClickNext}
       >
         下一步

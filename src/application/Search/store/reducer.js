@@ -5,11 +5,11 @@ const defaultState = fromJS({
   hotList: [],
   suggestList: [],
   songsList: [],
-  enterLoading: false
-})
+  enterLoading: false,
+});
 
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.SET_HOT_KEYWRODS:
       return state.set('hotList', action.data);
     case actionTypes.SET_SUGGEST_LIST:
@@ -21,4 +21,4 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};

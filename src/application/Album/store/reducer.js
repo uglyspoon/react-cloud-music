@@ -7,11 +7,11 @@ const defaultState = fromJS({
   enterLoading: false,
   startIndex: 0,
   totalCount: 0,
-  scrollY: 0
-})
+  scrollY: 0,
+});
 
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.CHANGE_CURRENT_ALBUM:
       return state.set('currentAlbum', action.data);
     case actionTypes.CHANGE_PULLUP_LOADING:
@@ -25,4 +25,4 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -78,14 +78,14 @@ export const LogoContainer = styled.div`
     position: relative;
     &:after,
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 100px;
       height: 100px;
       border: 2px solid #f54060;
       display: block;
       border-radius: 50%;
-      animation-name: "ripple";
+      animation-name: 'ripple';
       animation-duration: 3s;
       animation-iteration-count: infinite;
       animation-direction: normal;
@@ -114,7 +114,7 @@ export const LogoContainer = styled.div`
   }
 `;
 export const LogoImg = styled.img.attrs({
-  src: require("../../../assets/netease-logo-white.svg")
+  src: require('../../../assets/netease-logo-white.svg'),
 })`
   width: 70px;
 `;

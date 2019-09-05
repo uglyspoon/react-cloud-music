@@ -1,10 +1,10 @@
-import { RankTypes } from "./config";
+import { RankTypes } from './config';
 //防抖函数
 
 const debounce = (func, delay) => {
   let timer;
-  return function (...args) {
-    if(timer) {
+  return function(...args) {
+    if (timer) {
       clearTimeout(timer);
     }
     timer = setTimeout(() => {
@@ -18,9 +18,9 @@ export { debounce };
 
 //处理歌手列表拼接歌手名字
 export const getName = list => {
-  let str = "";
+  let str = '';
   list.map((item, index) => {
-    str += index === 0 ? item.name : "/" + item.name;
+    str += index === 0 ? item.name : '/' + item.name;
     return item;
   });
   return str;
@@ -44,16 +44,16 @@ export const filterIdx = name => {
 };
 
 // 给css3相关属性增加浏览器前缀，处理浏览器兼容性问题
-let elementStyle = document.createElement("div").style;
+let elementStyle = document.createElement('div').style;
 
 let vendor = (() => {
   //首先通过transition属性判断是何种浏览器
   let transformNames = {
-    webkit: "webkitTransform",
-    Moz: "MozTransform",
-    O: "OTransfrom",
-    ms: "msTransform",
-    standard: "Transform"
+    webkit: 'webkitTransform',
+    Moz: 'MozTransform',
+    O: 'OTransfrom',
+    ms: 'msTransform',
+    standard: 'Transform',
   };
   for (let key in transformNames) {
     if (elementStyle[transformNames[key]] !== undefined) {
@@ -67,7 +67,7 @@ export function prefixStyle(style) {
   if (vendor === false) {
     return false;
   }
-  if (vendor === "standard") {
+  if (vendor === 'standard') {
     return style;
   }
   return vendor + style.charAt(0).toUpperCase() + style.substr(1);
@@ -80,15 +80,15 @@ export const isEmptyObject = obj => !obj || Object.keys(obj).length === 0;
 export const formatPlayTime = interval => {
   interval = interval | 0;
   const minute = (interval / 60) | 0;
-  const second = (interval % 60).toString().padStart(2, "0");
+  const second = (interval % 60).toString().padStart(2, '0');
   return `${minute}:${second}`;
 };
 
 export const getTransitionEndName = dom => {
-  let cssTransition = ["transition", "webkitTransition"];
+  let cssTransition = ['transition', 'webkitTransition'];
   let transitionEnd = {
-    transition: "transitionend",
-    webkitTransition: "webkitTransitionEnd"
+    transition: 'transitionend',
+    webkitTransition: 'webkitTransitionEnd',
   };
   for (let i = 0; i < cssTransition.length; i++) {
     if (dom.style[cssTransition[i]] !== undefined) {
@@ -130,4 +130,4 @@ export const getSongUrl = id => {
 };
 //除去手机号码的空格符号
 
-export const trimPhone = val => val.replace(/(^\s+)|(\s+$)|\s+/g, "");
+export const trimPhone = val => val.replace(/(^\s+)|(\s+$)|\s+/g, '');

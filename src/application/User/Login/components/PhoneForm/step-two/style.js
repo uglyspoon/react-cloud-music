@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   p.tips {
@@ -54,7 +54,7 @@ export const VcodeBox = styled.div`
   .v-code .line::after {
     display: block;
     position: absolute;
-    content: "";
+    content: '';
     left: 0;
     width: 100%;
     bottom: 0;
@@ -70,7 +70,7 @@ export const VcodeBox = styled.div`
     top: 20%;
     width: 1px;
     height: 60%;
-    content: "";
+    content: '';
     background-color: #333333;
     animation-name: coruscate;
     animation-duration: 1s;

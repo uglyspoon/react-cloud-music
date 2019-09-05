@@ -1,12 +1,12 @@
-import React, { useState, useCallback } from "react";
-import { Header, Container } from "./style";
-import { trimPhone } from "../../../../../api/utils";
-import StepOne from "./step-one";
-import StepTwo from "./step-two";
+import React, { useState, useCallback } from 'react';
+import { Header, Container } from './style';
+import { trimPhone } from '../../../../../api/utils';
+import StepOne from './step-one';
+import StepTwo from './step-two';
 
 const PhoneForm = props => {
   const { onClickBack, sentVcode, sentStatus, loginByVcode } = props;
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState('');
 
   //验证码触发登录操作
   const triggerLogin = useCallback(
@@ -27,8 +27,8 @@ const PhoneForm = props => {
     const result =
       newValue.length > oldValue.length
         ? newValue
-            .replace(/[^\d]/gi, "")
-            .replace(/(\d{3})(\d{0,4})(\d{0,4})/, "$1 $2 $3")
+            .replace(/[^\d]/gi, '')
+            .replace(/(\d{3})(\d{0,4})(\d{0,4})/, '$1 $2 $3')
         : phone.trim().slice(0, -1);
     if (result && trimPhone(result).length > 11) {
       return;
@@ -40,8 +40,8 @@ const PhoneForm = props => {
     <Container>
       <Header>
         <img
-          src={require("../../../../../assets/back.svg")}
-          alt=""
+          src={require('../../../../../assets/back.svg')}
+          alt=''
           onClick={onClickBack}
         />
         手机号登录

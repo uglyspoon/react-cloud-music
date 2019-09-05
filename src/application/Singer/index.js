@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Container } from "./style";
-import Header from "../../baseUI/header/index";
-import { ImgWrapper, CollectButton, SongListWrapper, BgLayer } from "./style";
-import Scroll from "../../baseUI/scroll/index";
-import { HEADER_HEIGHT } from "./../../api/config";
-import { getSingerInfo } from "./store/actionCreators";
-import { connect } from "react-redux";
-import Loading from "./../../baseUI/loading/index";
-import { EnterLoading } from "../Singers/style";
-import { changeEnterLoading } from "./store/actionCreators";
-import { CSSTransition } from "react-transition-group";
-import SongsList from "../SongList/";
-import MusicNote from "../../baseUI/music-note/index";
+import React, { useState, useEffect, useRef } from 'react';
+import { Container } from './style';
+import Header from '../../baseUI/header/index';
+import { ImgWrapper, CollectButton, SongListWrapper, BgLayer } from './style';
+import Scroll from '../../baseUI/scroll/index';
+import { HEADER_HEIGHT } from './../../api/config';
+import { getSingerInfo } from './store/actionCreators';
+import { connect } from 'react-redux';
+import Loading from './../../baseUI/loading/index';
+import { EnterLoading } from '../Singers/style';
+import { changeEnterLoading } from './store/actionCreators';
+import { CSSTransition } from 'react-transition-group';
+import SongsList from '../SongList/';
+import MusicNote from '../../baseUI/music-note/index';
 
 function Singer(props) {
   const initialHeight = useRef(0);
@@ -57,18 +57,18 @@ function Singer(props) {
     //因此在处理的过程中，随着内容的滚动，遮罩也跟着移动
     if (newY > 0) {
       //处理往下拉的情况,效果：图片放大，按钮跟着偏移
-      imageDOM.style["transform"] = `scale(${1 + percent})`;
-      buttonDOM.style["transform"] = `translate3d(0, ${newY}px, 0)`;
+      imageDOM.style['transform'] = `scale(${1 + percent})`;
+      buttonDOM.style['transform'] = `translate3d(0, ${newY}px, 0)`;
       layerDOM.style.top = `${height - OFFSET + newY}px`;
     } else if (newY >= minScrollY) {
       //往上滑动，但是还没超过Header部分
       layerDOM.style.top = `${height - OFFSET - Math.abs(newY)}px`;
       layerDOM.style.zIndex = 1;
-      imageDOM.style.paddingTop = "75%";
+      imageDOM.style.paddingTop = '75%';
       imageDOM.style.height = 0;
       imageDOM.style.zIndex = -1;
-      buttonDOM.style["transform"] = `translate3d(0, ${newY}px, 0)`;
-      buttonDOM.style["opacity"] = `${1 - percent * 2}`;
+      buttonDOM.style['transform'] = `translate3d(0, ${newY}px, 0)`;
+      buttonDOM.style['opacity'] = `${1 - percent * 2}`;
     } else if (newY < minScrollY) {
       //往上滑动，但是超过Header部分
       layerDOM.style.top = `${HEADER_HEIGHT - OFFSET}px`;
@@ -90,7 +90,7 @@ function Singer(props) {
     <CSSTransition
       in={showStatus}
       timeout={300}
-      classNames="fly"
+      classNames='fly'
       appear={true}
       unmountOnExit
       onExited={() => props.history.goBack()}
@@ -102,11 +102,11 @@ function Singer(props) {
           ref={header}
         ></Header>
         <ImgWrapper ref={imageWrapper} bgUrl={artist.picUrl}>
-          <div className="filter"></div>
+          <div className='filter'></div>
         </ImgWrapper>
         <CollectButton ref={collectButton}>
-          <i className="iconfont">&#xe62d;</i>
-          <span className="text">收藏</span>
+          <i className='iconfont'>&#xe62d;</i>
+          <span className='text'>收藏</span>
         </CollectButton>
         <BgLayer ref={layer}></BgLayer>
         <SongListWrapper ref={songScrollWrapper} play={songsCount}>
@@ -132,10 +132,10 @@ function Singer(props) {
 
 // 映射Redux全局的state到组件的props上
 const mapStateToProps = state => ({
-  artist: state.getIn(["singerInfo", "artist"]).toJS(),
-  songs: state.getIn(["singerInfo", "songsOfArtist"]).toJS(),
-  loading: state.getIn(["singerInfo", "loading"]),
-  songsCount: state.getIn(["player", "playList"]).size
+  artist: state.getIn(['singerInfo', 'artist']).toJS(),
+  songs: state.getIn(['singerInfo', 'songsOfArtist']).toJS(),
+  loading: state.getIn(['singerInfo', 'loading']),
+  songsCount: state.getIn(['player', 'playList']).size,
 });
 // 映射dispatch到props上
 const mapDispatchToProps = dispatch => {
@@ -143,7 +143,7 @@ const mapDispatchToProps = dispatch => {
     getSingerDataDispatch(id) {
       dispatch(changeEnterLoading(true));
       dispatch(getSingerInfo(id));
-    }
+    },
   };
 };
 

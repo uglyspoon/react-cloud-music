@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import global from "../../../../../assets/global-style";
+import styled from 'styled-components';
+import global from '../../../../../assets/global-style';
 
 export const FormContainer = styled.div`
   display: flex;
@@ -11,9 +11,9 @@ export const FormContainer = styled.div`
 `;
 export const Button = styled.span`
   background: ${props =>
-    props.background ? `${props.background}` : `${global["official-red"]}`};
+    props.background ? `${props.background}` : `${global['official-red']}`};
   color: ${props =>
-    props.color ? `${props.color}` : `${global["official-red"]}`};
+    props.color ? `${props.color}` : `${global['official-red']}`};
   height: 50px;
   line-height: 50px;
   font-size: 18px;

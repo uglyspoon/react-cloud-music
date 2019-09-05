@@ -4,11 +4,11 @@ import { fromJS } from 'immutable';
 const defaultState = fromJS({
   bannerList: [],
   recommendList: [],
-  enterLoading: true
-})
+  enterLoading: true,
+});
 
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.CHANGE_BANNER:
       return state.set('bannerList', action.data);
     case actionTypes.CHANGE_RECOMMEND_LIST:
@@ -18,4 +18,4 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};

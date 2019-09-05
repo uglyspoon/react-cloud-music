@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import style from "../../../assets/global-style";
+import styled, { keyframes } from 'styled-components';
+import style from '../../../assets/global-style';
 
 const rotate = keyframes`
   0%{
@@ -16,7 +16,7 @@ export const NormalPlayerContainer = styled.div`
   top: 0;
   bottom: 0;
   z-index: 150;
-  background: ${style["background-color"]};
+  background: ${style['background-color']};
   .background {
     position: absolute;
     left: 0;
@@ -27,7 +27,7 @@ export const NormalPlayerContainer = styled.div`
     opacity: 0.6;
     filter: blur(20px);
     &.layer {
-      background: ${style["font-color-desc"]};
+      background: ${style['font-color-desc']};
       opacity: 0.3;
       filter: none;
     }
@@ -67,7 +67,7 @@ export const Top = styled.div`
       display: block;
       padding: 9px;
       font-size: 24px;
-      color: ${style["font-color-desc"]};
+      color: ${style['font-color-desc']};
       font-weight: bold;
       transform: rotate(90deg);
     }
@@ -77,15 +77,15 @@ export const Top = styled.div`
     margin: 0 auto;
     line-height: 40px;
     text-align: center;
-    font-size: ${style["font-size-l"]};
-    color: ${style["font-color-desc"]};
+    font-size: ${style['font-size-l']};
+    color: ${style['font-color-desc']};
     ${style.noWrap()};
   }
   .subtitle {
     line-height: 20px;
     text-align: center;
-    font-size: ${style["font-size-m"]};
-    color: ${style["font-color-desc-v2"]};
+    font-size: ${style['font-size-m']};
+    color: ${style['font-color-desc-v2']};
     ${style.noWrap()};
   }
 `;
@@ -174,7 +174,7 @@ export const LyricWrapper = styled.div`
     line-height: 32px;
     color: rgba(255, 255, 255, 0.5);
     white-space: normal;
-    font-size: ${style["font-size-l"]};
+    font-size: ${style['font-size-l']};
     &.current {
       color: #fff;
     }
@@ -192,8 +192,8 @@ export const ProgressWrapper = styled.div`
   margin: 0px auto;
   padding: 10px 0;
   .time {
-    color: ${style["font-color-desc"]};
-    font-size: ${style["font-size-s"]};
+    color: ${style['font-color-desc']};
+    font-size: ${style['font-size-s']};
     flex: 0 0 30px;
     line-height: 30px;
     width: 30px;
@@ -214,9 +214,9 @@ export const Operators = styled.div`
   .icon {
     font-weight: 300;
     flex: 1;
-    color: ${style["font-color-desc"]};
+    color: ${style['font-color-desc']};
     &.disable {
-      color: ${style["theme-color-shadow"]};
+      color: ${style['theme-color-shadow']};
     }
     i {
       font-weight: 300;
@@ -237,6 +237,6 @@ export const Operators = styled.div`
     text-align: left;
   }
   .icon-favorite {
-    color: ${style["theme-color"]};
+    color: ${style['theme-color']};
   }
 `;

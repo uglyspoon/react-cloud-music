@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Container, LogoImg, LogoContainer, LoginContainer } from "./style";
-import { withRouter } from "react-router-dom";
-import * as actionCreators from "./store/actionCreators";
-import LoginForm from "./components/LoginForm";
-import PhoneForm from "./components/PhoneForm";
+import React, { useState, useRef, useEffect } from 'react';
+import { Container, LogoImg, LogoContainer, LoginContainer } from './style';
+import { withRouter } from 'react-router-dom';
+import * as actionCreators from './store/actionCreators';
+import LoginForm from './components/LoginForm';
+import PhoneForm from './components/PhoneForm';
 
-import { CSSTransition } from "react-transition-group";
-import { connect } from "react-redux";
+import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
 
 const Login = props => {
   const {
@@ -15,7 +15,7 @@ const Login = props => {
     sentStatus,
     loginStatus,
     changeSentStatusDispatch,
-    history
+    history,
   } = props;
   const [inPhone, setInPhone] = useState(false);
   const [agreed, setAgreed] = useState(false);
@@ -23,24 +23,24 @@ const Login = props => {
 
   useEffect(() => {
     if (loginStatus) {
-      history.push("/recommend");
+      history.push('/recommend');
     }
   }, [loginStatus, history]);
 
   const jumpToIndex = () => {
-    history.push("/recommend");
+    history.push('/recommend');
   };
 
   const jumpToLogin = method => {
     if (!agreed) {
       // alert("请同意条款");
-      checkBoxRef.current.classList.add("shake-horizontal");
+      checkBoxRef.current.classList.add('shake-horizontal');
       setTimeout(() => {
-        checkBoxRef.current.classList.remove("shake-horizontal");
+        checkBoxRef.current.classList.remove('shake-horizontal');
       }, 500);
       return;
     }
-    if (method === "phone") {
+    if (method === 'phone') {
       setInPhone(true);
     }
   };
@@ -51,7 +51,7 @@ const Login = props => {
 
   return (
     <>
-      <CSSTransition in={!inPhone} timeout={500} classNames="push-out">
+      <CSSTransition in={!inPhone} timeout={500} classNames='push-out'>
         <Container>
           <LogoContainer>
             <div>
@@ -69,7 +69,7 @@ const Login = props => {
       <CSSTransition
         in={inPhone}
         timeout={500}
-        classNames="push-in"
+        classNames='push-in'
         unmountOnExit
         onExited={() => changeSentStatusDispatch()}
       >
@@ -89,9 +89,9 @@ const Login = props => {
 
 // 映射Redux全局的state到组件的props上
 const mapStateToProps = state => ({
-  userInfo: state.getIn(["user", "userInfo"]),
-  sentStatus: state.getIn(["user", "sentStatus"]),
-  loginStatus: state.getIn(["user", "loginStatus"])
+  userInfo: state.getIn(['user', 'userInfo']),
+  sentStatus: state.getIn(['user', 'sentStatus']),
+  loginStatus: state.getIn(['user', 'loginStatus']),
 });
 // 映射dispatch到props上
 const mapDispatchToProps = dispatch => {
@@ -107,7 +107,7 @@ const mapDispatchToProps = dispatch => {
     },
     changeSentStatusDispatch() {
       dispatch(actionCreators.saveSentStatus(false));
-    }
+    },
   };
 };
 

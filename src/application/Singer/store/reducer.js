@@ -4,11 +4,11 @@ import { fromJS } from 'immutable';
 const defaultState = fromJS({
   artist: {},
   songsOfArtist: [],
-  loading: true
+  loading: true,
 });
 
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.CHANGE_ARTIST:
       return state.set('artist', action.data);
     case actionTypes.CHANGE_SONGS_OF_ARTIST:
@@ -18,4 +18,4 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};

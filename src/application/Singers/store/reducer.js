@@ -2,17 +2,17 @@ import * as actionTypes from './constants';
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-  category: "",
-  alpha: "",
+  category: '',
+  alpha: '',
   singerList: [],
   enterLoading: true,
   pullUpLoading: false,
   pullDownLoading: false,
-  pageCount: 0
-})
+  pageCount: 0,
+});
 
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.CHANGE_ALPHA:
       return state.set('alpha', action.data);
     case actionTypes.CHANGE_CATOGORY:
@@ -30,4 +30,4 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};
