@@ -42,7 +42,7 @@ const SongsList = React.forwardRef((props, refs) => {
     musicAnimation(e.nativeEvent.clientX, e.nativeEvent.clientY);
   };
 
-  let songList = list => {
+  let songList = (list) => {
     let res = [];
     // 判断页数是否超过总数
     let end = usePageSplit ? startIndex + ONE_PAGE_COUNT : list.length;
@@ -50,7 +50,7 @@ const SongsList = React.forwardRef((props, refs) => {
       if (i >= list.length) break;
       let item = list[i];
       res.push(
-        <li key={item.id} onClick={e => selectItem(e, i)}>
+        <li key={item.id} onClick={(e) => selectItem(e, i)}>
           <span className='index'>{i + 1}</span>
           <div className='info'>
             <span>{item.name}</span>
@@ -65,7 +65,7 @@ const SongsList = React.forwardRef((props, refs) => {
     return res;
   };
 
-  const collect = count => {
+  const collect = (count) => {
     return (
       <div className='add_list'>
         <i className='iconfont'>&#xe62d;</i>
@@ -79,7 +79,7 @@ const SongsList = React.forwardRef((props, refs) => {
   return (
     <SongList ref={refs} showBackground={props.showBackground}>
       <div className='first_line'>
-        <div className='play_all' onClick={e => selectItem(e, 0)}>
+        <div className='play_all' onClick={(e) => selectItem(e, 0)}>
           <i className='iconfont'>&#xe6e3;</i>
           <span>
             播放全部 <span className='sum'>(共{totalCount}首)</span>
@@ -93,14 +93,14 @@ const SongsList = React.forwardRef((props, refs) => {
 });
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   fullScreen: state.getIn(['player', 'fullScreen']),
   playing: state.getIn(['player', 'playing']),
   currentSong: state.getIn(['player', 'currentSong']),
   scrollY: state.getIn(['album', 'scrollY']),
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     changePlayListDispatch(data) {
       dispatch(changePlayList(data));

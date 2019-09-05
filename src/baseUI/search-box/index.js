@@ -36,7 +36,7 @@ const SearchBoxWrapper = styled.div`
   }
 `;
 
-const SearchBox = props => {
+const SearchBox = (props) => {
   const queryRef = useRef();
   const [query, setQuery] = useState('');
 
@@ -63,7 +63,7 @@ const SearchBox = props => {
     // eslint-disable-next-line
   }, [newQuery]);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setQuery(e.currentTarget.value);
   };
 

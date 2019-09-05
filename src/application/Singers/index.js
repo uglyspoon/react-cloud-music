@@ -55,7 +55,7 @@ function Singers(props) {
     // eslint-disable-next-line
   }, []);
 
-  const enterDetail = id => {
+  const enterDetail = (id) => {
     props.history.push(`/singers/${id}`);
   };
 
@@ -67,13 +67,13 @@ function Singers(props) {
     pullDownRefresh(category, pageCount);
   };
 
-  const handleUpdateCategory = newVal => {
+  const handleUpdateCategory = (newVal) => {
     if (category === newVal) return;
     updateCategory(newVal);
     scrollRef.current.refresh();
   };
 
-  const handleUpdateAlpha = newVal => {
+  const handleUpdateAlpha = (newVal) => {
     if (alpha === newVal) return;
     updateAlpha(newVal);
     scrollRef.current.refresh();
@@ -123,13 +123,13 @@ function Singers(props) {
         <Horizen
           title={'分类(默认热门):'}
           list={categoryTypes}
-          handleClick={v => handleUpdateCategory(v)}
+          handleClick={(v) => handleUpdateCategory(v)}
           oldVal={category}
         ></Horizen>
         <Horizen
           title={'首字母:'}
           list={alphaTypes}
-          handleClick={v => handleUpdateAlpha(v)}
+          handleClick={(v) => handleUpdateAlpha(v)}
           oldVal={alpha}
         ></Horizen>
       </NavContainer>
@@ -155,7 +155,7 @@ function Singers(props) {
     </div>
   );
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   alpha: state.getIn(['singers', 'alpha']),
   category: state.getIn(['singers', 'category']),
   singerList: state.getIn(['singers', 'singerList']),
@@ -165,7 +165,7 @@ const mapStateToProps = state => ({
   pageCount: state.getIn(['singers', 'pageCount']),
   songsCount: state.getIn(['player', 'playList']).size,
 });
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getHotSinger() {
       dispatch(getHotSingerList());

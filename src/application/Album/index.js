@@ -43,7 +43,7 @@ function Album(props) {
     getAlbumDataDispatch(id, urlStr);
   }, [getAlbumDataDispatch, id, props.history.location.pathname]);
 
-  const handleScroll = pos => {
+  const handleScroll = (pos) => {
     let minScrollY = -HEADER_HEIGHT;
     let percent = Math.abs(pos.y / minScrollY);
     let headerDom = headerEl.current;
@@ -92,7 +92,7 @@ function Album(props) {
         ></Header>
         {Object.keys(currentAlbum).length !== 0 ? (
           <Scroll
-            onScroll={pos => handleScroll(pos)}
+            onScroll={(pos) => handleScroll(pos)}
             pullUp={() => handlePullUp()}
             pullUpLoading={pullUpLoading}
             bounceTop={false}
@@ -115,7 +115,7 @@ function Album(props) {
   );
 }
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentAlbum: state.getIn(['album', 'currentAlbum']).toJS(),
   pullUpLoading: state.getIn(['album', 'pullUpLoading']),
   enterLoading: state.getIn(['album', 'enterLoading']),
@@ -124,7 +124,7 @@ const mapStateToProps = state => ({
   songsCount: state.getIn(['player', 'playList']).size,
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getAlbumDataDispatch(id, fromURL) {
       dispatch(changeEnterLoading(true));

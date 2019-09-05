@@ -9,25 +9,25 @@ import {
   CHANGE_LOGIN_STATUS,
 } from './constants';
 
-export const saveUserInfo = data => ({
+export const saveUserInfo = (data) => ({
   type: CHANGE_USER_INFO,
   data,
 });
 
-export const saveSentStatus = data => ({
+export const saveSentStatus = (data) => ({
   type: CHANGE_SENT_STATUS,
   data,
 });
 
-export const saveLoginStatus = data => ({
+export const saveLoginStatus = (data) => ({
   type: CHANGE_LOGIN_STATUS,
   data,
 });
 
 export const loginByPhone = (phone, password) => {
-  return dispatch => {
+  return (dispatch) => {
     loginByPhoneRequest(phone, password)
-      .then(res => {
+      .then((res) => {
         dispatch(saveUserInfo(res));
       })
       .catch(() => {
@@ -37,9 +37,9 @@ export const loginByPhone = (phone, password) => {
 };
 
 export const loginByVcode = (phone, vcode) => {
-  return dispatch => {
+  return (dispatch) => {
     loginByVcodeRequest(phone, vcode)
-      .then(res => {
+      .then((res) => {
         if (res.code === 200) {
           dispatch(saveUserInfo(res));
           dispatch(saveLoginStatus(true));
@@ -51,10 +51,10 @@ export const loginByVcode = (phone, vcode) => {
   };
 };
 
-export const sentVcode = phone => {
-  return dispatch => {
+export const sentVcode = (phone) => {
+  return (dispatch) => {
     sentVcodeRequest(phone)
-      .then(res => {
+      .then((res) => {
         if (res.code === 200) {
           dispatch(saveSentStatus(true));
         }

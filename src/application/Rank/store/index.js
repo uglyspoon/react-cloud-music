@@ -6,14 +6,14 @@ export const CHANGE_RANK_LIST = 'home/rank/CHANGE_RANK_LIST';
 export const CHANGE_LOADING = 'home/rank/CHANGE_LOADING';
 
 //actionCrreator
-const changeRankList = data => ({
+const changeRankList = (data) => ({
   type: CHANGE_RANK_LIST,
   data: fromJS(data),
 });
 
 export const getRankList = () => {
-  return dispatch => {
-    getRankListRequest().then(data => {
+  return (dispatch) => {
+    getRankListRequest().then((data) => {
       let list = data && data.list;
       dispatch(changeRankList(list));
       dispatch(changeLoading(false));
@@ -21,7 +21,7 @@ export const getRankList = () => {
   };
 };
 
-const changeLoading = data => ({
+const changeLoading = (data) => ({
   type: CHANGE_LOADING,
   data,
 });

@@ -8,7 +8,7 @@ import PhoneForm from './components/PhoneForm';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 
-const Login = props => {
+const Login = (props) => {
   const {
     LoginByVcodeDispatch,
     sentVcodeDispatch,
@@ -31,7 +31,7 @@ const Login = props => {
     history.push('/recommend');
   };
 
-  const jumpToLogin = method => {
+  const jumpToLogin = (method) => {
     if (!agreed) {
       // alert("请同意条款");
       checkBoxRef.current.classList.add('shake-horizontal');
@@ -88,13 +88,13 @@ const Login = props => {
 };
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   userInfo: state.getIn(['user', 'userInfo']),
   sentStatus: state.getIn(['user', 'sentStatus']),
   loginStatus: state.getIn(['user', 'loginStatus']),
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     LoginByPhoneDispatch(phone, password) {
       dispatch(actionCreators.loginByPhone(phone, password));

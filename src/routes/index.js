@@ -4,7 +4,7 @@ import HomeLayout from '../layouts/HomeLayout';
 import BlankLayout from '../layouts/BlankLayout';
 
 const LoginComponent = lazy(() => import('../application/User/Login'));
-const Login = props => {
+const Login = (props) => {
   return (
     <Suspense fallback={null}>
       <LoginComponent {...props}></LoginComponent>
@@ -22,7 +22,7 @@ const Login = props => {
 // };
 
 const RecommendComponent = lazy(() => import('../application/Recommend/'));
-const Recommend = props => {
+const Recommend = (props) => {
   return (
     <Suspense fallback={null}>
       <RecommendComponent {...props}></RecommendComponent>
@@ -31,7 +31,7 @@ const Recommend = props => {
 };
 
 const SingersComponent = lazy(() => import('../application/Singers/'));
-const Singers = props => {
+const Singers = (props) => {
   return (
     <Suspense fallback={null}>
       <SingersComponent {...props}></SingersComponent>
@@ -40,7 +40,7 @@ const Singers = props => {
 };
 
 const RankComponent = lazy(() => import('../application/Rank/'));
-const Rank = props => {
+const Rank = (props) => {
   return (
     <Suspense fallback={null}>
       <RankComponent {...props}></RankComponent>
@@ -49,7 +49,7 @@ const Rank = props => {
 };
 
 const AlbumComponent = lazy(() => import('../application/Album/'));
-const Album = props => {
+const Album = (props) => {
   return (
     <Suspense fallback={null}>
       <AlbumComponent {...props}></AlbumComponent>
@@ -58,7 +58,7 @@ const Album = props => {
 };
 
 const SingerComponent = lazy(() => import('./../application/Singer/'));
-const Singer = props => {
+const Singer = (props) => {
   return (
     <Suspense fallback={null}>
       <SingerComponent {...props}></SingerComponent>
@@ -67,7 +67,7 @@ const Singer = props => {
 };
 
 const SearchComponent = lazy(() => import('./../application/Search/'));
-const Search = props => {
+const Search = (props) => {
   return (
     <Suspense fallback={null}>
       <SearchComponent {...props}></SearchComponent>

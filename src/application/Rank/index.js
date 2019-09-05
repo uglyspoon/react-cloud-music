@@ -22,7 +22,7 @@ function Rank(props) {
     // eslint-disable-next-line
   }, []);
 
-  const enterDetail = name => {
+  const enterDetail = (name) => {
     const idx = filterIdx(name);
     if (idx === null) {
       alert('暂无相关数据');
@@ -30,7 +30,7 @@ function Rank(props) {
     }
     props.history.push(`/rank/${idx}`);
   };
-  const renderSongList = list => {
+  const renderSongList = (list) => {
     return list.length ? (
       <SongList>
         {list.map((item, index) => {
@@ -46,7 +46,7 @@ function Rank(props) {
   const renderRankList = (list, global) => {
     return (
       <List globalRank={global}>
-        {list.map(item => {
+        {list.map((item) => {
           return (
             <ListItem
               key={item.coverImgId}
@@ -95,13 +95,13 @@ function Rank(props) {
 }
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   rankList: state.getIn(['rank', 'rankList']),
   loading: state.getIn(['rank', 'loading']),
   songsCount: state.getIn(['player', 'playList']).size,
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getRankListDataDispatch() {
       dispatch(getRankList());

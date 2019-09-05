@@ -12,31 +12,31 @@ import {
 } from '../../../api/request';
 import { fromJS } from 'immutable';
 
-const changeCurrentAlbum = data => ({
+const changeCurrentAlbum = (data) => ({
   type: CHANGE_CURRENT_ALBUM,
   data: fromJS(data),
 });
 
-export const changePullUpLoading = data => ({
+export const changePullUpLoading = (data) => ({
   type: CHANGE_PULLUP_LOADING,
   data,
 });
-export const changeEnterLoading = data => ({
+export const changeEnterLoading = (data) => ({
   type: CHANGE_ENTER_LOADING,
   data,
 });
 
-const changeTotalCount = data => ({
+const changeTotalCount = (data) => ({
   type: CHANGE_TOTAL_COUNT,
   data,
 });
 
-export const changeStartIndex = data => ({
+export const changeStartIndex = (data) => ({
   type: CHANGE_START_INDEX,
   data,
 });
 
-export const changeScrollY = data => ({
+export const changeScrollY = (data) => ({
   type: CHANGE_SCROLL_Y,
   data,
 });
@@ -53,9 +53,9 @@ export const getAlbumList = (id, fromURL) => {
     default:
       request = getRecommendListDetailRequest;
   }
-  return dispatch => {
+  return (dispatch) => {
     request(id)
-      .then(res => {
+      .then((res) => {
         let data = res.playlist;
         dispatch(changeCurrentAlbum(data));
         dispatch(changeEnterLoading(false));

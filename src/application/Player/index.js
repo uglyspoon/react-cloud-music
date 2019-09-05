@@ -101,13 +101,13 @@ function Player(props) {
     setPlayingLyric(txt);
   };
 
-  const getLyric = id => {
+  const getLyric = (id) => {
     let lyric = '';
     if (currentLyric.current) {
       currentLyric.current.stop();
     }
     getLyricRequest(id)
-      .then(data => {
+      .then((data) => {
         if (!data.lrc) return;
         lyric = data.lrc.lyric;
         audioRef.current.play();
@@ -127,7 +127,7 @@ function Player(props) {
     currentLyric.current.togglePlay();
   };
 
-  const onProgressChange = curPercent => {
+  const onProgressChange = (curPercent) => {
     const newTime = curPercent * duration;
     setCurrentTime(newTime);
     audioRef.current.currentTime = newTime;
@@ -139,7 +139,7 @@ function Player(props) {
     }
   };
 
-  const updateTime = e => {
+  const updateTime = (e) => {
     setCurrentTime(e.target.currentTime);
   };
 
@@ -257,7 +257,7 @@ function Player(props) {
 }
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   fullScreen: state.getIn(['player', 'fullScreen']),
   playing: state.getIn(['player', 'playing']),
   currentSong: state.getIn(['player', 'currentSong']).toJS(),
@@ -269,7 +269,7 @@ const mapStateToProps = state => ({
 });
 
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     togglePlayingDispatch(data) {
       dispatch(changePlayingState(data));

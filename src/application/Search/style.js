@@ -6,7 +6,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: ${props => (props.play > 0 ? '60px' : 0)};
+  bottom: ${(props) => (props.play > 0 ? '60px' : 0)};
   width: 100%;
   z-index: 100;
   overflow: hidden;
@@ -39,7 +39,7 @@ export const ShortcutWrapper = styled.div`
   top: 40px;
   bottom: 0;
   width: 100%;
-  display: ${props => (props.show ? '' : 'none')};
+  display: ${(props) => (props.show ? '' : 'none')};
 `;
 
 export const HotKey = styled.div`

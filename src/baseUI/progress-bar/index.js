@@ -60,7 +60,7 @@ function ProgressBar(props) {
     // eslint-disable-next-line
   }, [percent]);
 
-  const _offset = offsetWidth => {
+  const _offset = (offsetWidth) => {
     progress.current.style.width = `${offsetWidth}px`;
     progressBtn.current.style.transform = `translate3d(${offsetWidth}px, 0, 0)`;
   };
@@ -71,14 +71,14 @@ function ProgressBar(props) {
     props.percentChange(curPercent);
   };
 
-  const progressClick = e => {
+  const progressClick = (e) => {
     const rect = progressBar.current.getBoundingClientRect();
     const offsetWidth = e.pageX - rect.left;
     _offset(offsetWidth);
     _changePercent(percent);
   };
 
-  const progressTouchStart = e => {
+  const progressTouchStart = (e) => {
     const startTouch = {};
     startTouch.initiated = true;
     startTouch.startX = e.touches[0].pageX;
@@ -86,7 +86,7 @@ function ProgressBar(props) {
     setTouch(startTouch);
   };
 
-  const progressTouchMove = e => {
+  const progressTouchMove = (e) => {
     if (!touch.initiated) return;
     const deltaX = e.touches[0].pageX - touch.startX;
     const barWidth = progressBar.current.clientWidth - progressBtnWidth;
@@ -94,7 +94,7 @@ function ProgressBar(props) {
     _offset(offsetWidth);
   };
 
-  const progressTouchEnd = e => {
+  const progressTouchEnd = (e) => {
     const endTouch = JSON.parse(JSON.stringify(touch));
     endTouch.initiated = false;
     setTouch(endTouch);

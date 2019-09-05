@@ -13,48 +13,48 @@ import {
 } from './constants';
 import { fromJS } from 'immutable';
 
-export const changeCategory = data => ({
+export const changeCategory = (data) => ({
   type: CHANGE_CATOGORY,
   data,
 });
 
-export const changeAlpha = data => ({
+export const changeAlpha = (data) => ({
   type: CHANGE_ALPHA,
   data,
 });
 
-const changeSingerList = data => ({
+const changeSingerList = (data) => ({
   type: CHANGE_SINGER_LIST,
   data: fromJS(data),
 });
 
-export const changePageCount = data => ({
+export const changePageCount = (data) => ({
   type: CHANGE_PAGE_COUNT,
   data,
 });
 
 //进场loading
-export const changeEnterLoading = data => ({
+export const changeEnterLoading = (data) => ({
   type: CHANGE_ENTER_LOADING,
   data,
 });
 
 //滑动最底部loading
-export const changePullUpLoading = data => ({
+export const changePullUpLoading = (data) => ({
   type: CHANGE_PULLUP_LOADING,
   data,
 });
 
 //顶部下拉刷新loading
-export const changePullDownLoading = data => ({
+export const changePullDownLoading = (data) => ({
   type: CHANGE_PULLDOWN_LOADING,
   data,
 });
 
 export const getHotSingerList = () => {
-  return dispatch => {
+  return (dispatch) => {
     getHotSingerListRequest(0)
-      .then(res => {
+      .then((res) => {
         const data = res.artists;
         dispatch(changeSingerList(data));
         dispatch(changeEnterLoading(false));
@@ -72,7 +72,7 @@ export const refreshMoreHotSingerList = () => {
       .getIn(['singers', 'singerList'])
       .toJS();
     getHotSingerListRequest(pageCount)
-      .then(res => {
+      .then((res) => {
         const data = [...singerList, ...res.artists];
         dispatch(changeSingerList(data));
         dispatch(changePullUpLoading(false));
@@ -88,7 +88,7 @@ export const getSingerList = () => {
     const category = getState().getIn(['singers', 'category']);
     const alpha = getState().getIn(['singers', 'alpha']);
     getSingerListRequest(category, alpha, 0)
-      .then(res => {
+      .then((res) => {
         const data = res.artists;
         dispatch(changeSingerList(data));
         dispatch(changeEnterLoading(false));
@@ -109,7 +109,7 @@ export const refreshMoreSingerList = () => {
       .getIn(['singers', 'singerList'])
       .toJS();
     getSingerListRequest(category, alpha, pageCount)
-      .then(res => {
+      .then((res) => {
         const data = [...singerList, ...res.artists];
         dispatch(changeSingerList(data));
         dispatch(changePullUpLoading(false));

@@ -4,13 +4,13 @@ import { trimPhone } from '../../../../../api/utils';
 import StepOne from './step-one';
 import StepTwo from './step-two';
 
-const PhoneForm = props => {
+const PhoneForm = (props) => {
   const { onClickBack, sentVcode, sentStatus, loginByVcode } = props;
   const [phone, setPhone] = useState('');
 
   //验证码触发登录操作
   const triggerLogin = useCallback(
-    vcode => {
+    (vcode) => {
       loginByVcode(trimPhone(phone), vcode);
     },
     [phone, loginByVcode]
@@ -21,7 +21,7 @@ const PhoneForm = props => {
     sentVcode(trimPhone(phone));
   };
 
-  const onChangePhone = e => {
+  const onChangePhone = (e) => {
     let newValue = e.target.value;
     let oldValue = phone;
     const result =

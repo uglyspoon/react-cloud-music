@@ -223,7 +223,7 @@ function NormalPlayer(props) {
                               currentLineNum === index ? 'current' : ''
                             }`}
                             key={item + index}
-                            ref={el => lyricLineRefs.current.push(el)}
+                            ref={(el) => lyricLineRefs.current.push(el)}
                           >
                             {item.txt}
                           </p>
@@ -261,7 +261,7 @@ function NormalPlayer(props) {
             <div className='icon i-center'>
               <i
                 className='iconfont'
-                onClick={e => clickPlaying(e, !playing)}
+                onClick={(e) => clickPlaying(e, !playing)}
                 dangerouslySetInnerHTML={{
                   __html: playing ? '&#xe723;' : '&#xe731;',
                 }}

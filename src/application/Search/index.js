@@ -17,7 +17,7 @@ import { SongItem } from '../Album/style';
 import { getName } from '../../api/utils';
 import { getSongDetail } from './../Player/store/actionCreators';
 
-const Search = props => {
+const Search = (props) => {
   const [query, setQuery] = useState('');
   const [show, setShow] = useState(false);
   const musicNoteRef = useRef();
@@ -41,7 +41,7 @@ const Search = props => {
     let list = hotList ? hotList.toJS() : [];
     return (
       <ul>
-        {list.map(item => {
+        {list.map((item) => {
           return (
             <li
               className='item'
@@ -74,7 +74,7 @@ const Search = props => {
   //     </ul>
   //   )
   // }
-  const handleQuery = q => {
+  const handleQuery = (q) => {
     setQuery(q);
     if (!q) return;
     changeEnterLoadingDispatch(true);
@@ -170,9 +170,9 @@ const Search = props => {
   const renderSongs = () => {
     return (
       <SongItem style={{ paddingLeft: '20px' }}>
-        {songsList.map(item => {
+        {songsList.map((item) => {
           return (
-            <li key={item.id} onClick={e => selectItem(e, item.id)}>
+            <li key={item.id} onClick={(e) => selectItem(e, item.id)}>
               <div className='info'>
                 <span>{item.name}</span>
                 <span>
@@ -244,7 +244,7 @@ const Search = props => {
 };
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   hotList: state.getIn(['search', 'hotList']),
   enterLoading: state.getIn(['search', 'enterLoading']),
   suggestList: state.getIn(['search', 'suggestList']).toJS(),
@@ -253,7 +253,7 @@ const mapStateToProps = state => ({
 });
 
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getHotKeyWordsDispatch() {
       dispatch(getHotKeyWords());

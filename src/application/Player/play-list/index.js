@@ -56,7 +56,7 @@ function PlayList(props) {
     clearDispatch,
   } = props;
 
-  const changeMode = e => {
+  const changeMode = (e) => {
     let newMode = (mode + 1) % 3;
     if (newMode === 0) {
       changePlayListDispatch(sequencePlayList);
@@ -73,24 +73,24 @@ function PlayList(props) {
     changeModeDispatch(newMode);
   };
 
-  const handleChangeCurrentIndex = index => {
+  const handleChangeCurrentIndex = (index) => {
     if (currentIndex === index) return;
     changeCurrentIndexDispatch(index);
   };
 
-  const handleScroll = pos => {
+  const handleScroll = (pos) => {
     let state = pos.y === 0;
     setCanTouch(state);
   };
 
-  const handleTouchStart = e => {
+  const handleTouchStart = (e) => {
     if (!canTouch || initialed) return;
     listWrapperRef.current.style['transition'] = '';
     setStartY(e.nativeEvent.touches[0].pageY);
     setInitialed(true);
   };
 
-  const handleTouchMove = e => {
+  const handleTouchMove = (e) => {
     if (!canTouch || !initialed) return;
     let distance = e.nativeEvent.touches[0].pageY - startY;
     if (distance < 0) return;
@@ -98,7 +98,7 @@ function PlayList(props) {
     listWrapperRef.current.style.transform = `translate3d(0, ${distance}px, 0)`;
   };
 
-  const handleTouchEnd = e => {
+  const handleTouchEnd = (e) => {
     setInitialed(false);
     if (distance >= 150) {
       togglePlayListDispatch(false);
@@ -121,11 +121,11 @@ function PlayList(props) {
     clearDispatch();
   };
 
-  const getFavoriteIcon = item => {
+  const getFavoriteIcon = (item) => {
     return <i className='iconfont'>&#xe601;</i>;
   };
 
-  const getCurrentIcon = item => {
+  const getCurrentIcon = (item) => {
     const current = currentSong.id === item.id;
     const className = current ? 'icon-play' : '';
     const content = current ? '&#xe6e3;' : '';
@@ -153,10 +153,10 @@ function PlayList(props) {
       <div>
         <i
           className='iconfont'
-          onClick={e => changeMode(e)}
+          onClick={(e) => changeMode(e)}
           dangerouslySetInnerHTML={{ __html: content }}
         ></i>
-        <span className='text' onClick={e => changeMode(e)}>
+        <span className='text' onClick={(e) => changeMode(e)}>
           {text}
         </span>
       </div>
@@ -198,7 +198,7 @@ function PlayList(props) {
         <div
           className='list_wrapper'
           ref={listWrapperRef}
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -214,7 +214,7 @@ function PlayList(props) {
           <ScrollWrapper>
             <Scroll
               ref={listContentRef}
-              onScroll={pos => handleScroll(pos)}
+              onScroll={(pos) => handleScroll(pos)}
               bounceTop={false}
             >
               <ListContent>
@@ -232,7 +232,7 @@ function PlayList(props) {
                       <span className='like'>{getFavoriteIcon(item)}</span>
                       <span
                         className='delete'
-                        onClick={e => handleDeleteSong(e, item)}
+                        onClick={(e) => handleDeleteSong(e, item)}
                       >
                         <i className='iconfont'>&#xe63d;</i>
                       </span>
@@ -256,7 +256,7 @@ function PlayList(props) {
 }
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   currentIndex: state.getIn(['player', 'currentIndex']),
   currentSong: state.getIn(['player', 'currentSong']).toJS(),
   playList: state.getIn(['player', 'playList']).toJS(),
@@ -265,7 +265,7 @@ const mapStateToProps = state => ({
   mode: state.getIn(['player', 'mode']),
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     togglePlayListDispatch(data) {
       dispatch(changeShowPlayList(data));

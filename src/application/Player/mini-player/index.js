@@ -49,21 +49,21 @@ function MiniPlayer(props) {
             {playing ? (
               <i
                 className='icon-mini iconfont icon-pause'
-                onClick={e => clickPlaying(e, false)}
+                onClick={(e) => clickPlaying(e, false)}
               >
                 &#xe650;
               </i>
             ) : (
               <i
                 className='icon-mini iconfont icon-play'
-                onClick={e => clickPlaying(e, true)}
+                onClick={(e) => clickPlaying(e, true)}
               >
                 &#xe61e;
               </i>
             )}
           </ProgressCircle>
         </div>
-        <div className='control' onClick={e => handleTogglePlayList(e, true)}>
+        <div className='control' onClick={(e) => handleTogglePlayList(e, true)}>
           <i className='iconfont'>&#xe640;</i>
         </div>
       </MiniPlayerContainer>

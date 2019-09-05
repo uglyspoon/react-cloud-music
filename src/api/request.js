@@ -8,7 +8,7 @@ export const getRecommendListRequest = () => {
   return axiosInstance.get('/personalized');
 };
 
-export const getHotSingerListRequest = count => {
+export const getHotSingerListRequest = (count) => {
   return axiosInstance.get(`/top/artists?offset=${count}`);
 };
 
@@ -22,15 +22,15 @@ export const getRankListRequest = () => {
   return axiosInstance.get(`/toplist/detail`);
 };
 
-export const getRecommendListDetailRequest = id => {
+export const getRecommendListDetailRequest = (id) => {
   return axiosInstance.get(`/playlist/detail?id=${id}`);
 };
 
-export const getSingerInfoRequest = id => {
+export const getSingerInfoRequest = (id) => {
   return axiosInstance.get(`/artists?id=${id}`);
 };
 
-export const getRankListDetailRequest = id => {
+export const getRankListDetailRequest = (id) => {
   return axiosInstance.get(`/top/list/?idx=${id}`);
 };
 
@@ -38,19 +38,19 @@ export const getHotKeyWordsRequest = () => {
   return axiosInstance.get(`/search/hot`);
 };
 
-export const getSuggestListRequest = query => {
+export const getSuggestListRequest = (query) => {
   return axiosInstance.get(`/search/suggest?keywords=${query}`);
 };
 
-export const getResultSongsListRequest = query => {
+export const getResultSongsListRequest = (query) => {
   return axiosInstance.get(`/search?keywords=${query}`);
 };
 
-export const getSongDetailRequest = id => {
+export const getSongDetailRequest = (id) => {
   return axiosInstance.get(`/song/detail?ids=${id}`);
 };
 
-export const getLyricRequest = id => {
+export const getLyricRequest = (id) => {
   return axiosInstance.get(`/lyric?id=${id}`);
 };
 
@@ -60,7 +60,7 @@ export const loginByPhoneRequest = (phone, password) => {
   );
 };
 
-export const sentVcodeRequest = phone => {
+export const sentVcodeRequest = (phone) => {
   return axiosInstance.get(`/captcha/sent?phone=${phone}`);
 };
 

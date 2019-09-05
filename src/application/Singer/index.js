@@ -43,7 +43,7 @@ function Singer(props) {
     // eslint-disable-next-line
   }, []);
 
-  const handleScroll = pos => {
+  const handleScroll = (pos) => {
     let height = initialHeight.current;
     const newY = pos.y;
     const imageDOM = imageWrapper.current;
@@ -131,14 +131,14 @@ function Singer(props) {
 }
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   artist: state.getIn(['singerInfo', 'artist']).toJS(),
   songs: state.getIn(['singerInfo', 'songsOfArtist']).toJS(),
   loading: state.getIn(['singerInfo', 'loading']),
   songsCount: state.getIn(['player', 'playList']).size,
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getSingerDataDispatch(id) {
       dispatch(changeEnterLoading(true));

@@ -95,7 +95,7 @@ const Confirm = forwardRef((props, ref) => {
     >
       <ConfirmWrapper
         style={{ display: show ? 'block' : 'none' }}
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <div>
           <div className='confirm_content'>

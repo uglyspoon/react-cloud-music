@@ -4,14 +4,14 @@ import LazyLoad from 'react-lazyload';
 import { withRouter } from 'react-router-dom';
 
 function RecommendList(props) {
-  const enterDetail = id => {
+  const enterDetail = (id) => {
     props.history.push(`/recommend/${id}`);
   };
   return (
     <ListWrapper>
       <h1 className='title'>推荐歌单</h1>
       <List>
-        {props.recommendList.map(item => {
+        {props.recommendList.map((item) => {
           return (
             <ListItem key={item.id} onClick={() => enterDetail(item.id)}>
               <div className='img_wrapper'>

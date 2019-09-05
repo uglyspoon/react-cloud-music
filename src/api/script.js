@@ -8,8 +8,8 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  res => res.data,
-  err => {
+  (res) => res.data,
+  (err) => {
     console.log(err, '网络错误');
   }
 );
@@ -17,7 +17,7 @@ let obj = {};
 
 const getRankNames = async () => {
   for (let i = 0; i < 24; i++) {
-    await axiosInstance.get(`/top/list?idx=${i}`).then(data => {
+    await axiosInstance.get(`/top/list?idx=${i}`).then((data) => {
       obj[i] = data.playlist.name;
     });
   }

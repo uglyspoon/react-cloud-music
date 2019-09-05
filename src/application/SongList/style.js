@@ -4,7 +4,7 @@ import style from '../../assets/global-style';
 export const SongList = styled.div`
   border-radius: 10px;
   opacity: 0.98;
-  ${props =>
+  ${(props) =>
     props.showBackground
       ? `background: ${style['highlight-background-color']}`
       : ''}

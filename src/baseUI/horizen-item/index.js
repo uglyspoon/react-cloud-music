@@ -42,14 +42,14 @@ function Horizen(props) {
     let categoryDOM = Category.current;
     let tagElems = categoryDOM.querySelectorAll('span');
     let totalWidth = 0;
-    Array.from(tagElems).forEach(ele => {
+    Array.from(tagElems).forEach((ele) => {
       totalWidth += ele.offsetWidth;
     });
     categoryDOM.style.width = `${totalWidth}px`;
     setRefreshCategoryScroll(true);
   }, [refreshCategoryScroll]);
 
-  const clickHandle = item => {
+  const clickHandle = (item) => {
     handleClick(item.key);
   };
   return (
@@ -57,7 +57,7 @@ function Horizen(props) {
       <div ref={Category}>
         <List>
           <span>{title}</span>
-          {list.map(item => {
+          {list.map((item) => {
             return (
               <ListItem
                 key={item.key}

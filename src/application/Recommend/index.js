@@ -44,14 +44,14 @@ function Recommend(props) {
 }
 
 // 映射Redux全局的state到组件的props上
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   bannerList: state.getIn(['recommend', 'bannerList']).toJS(),
   recommendList: state.getIn(['recommend', 'recommendList']).toJS(),
   songsCount: state.getIn(['player', 'playList']).size,
   enterLoading: state.getIn(['recommend', 'enterLoading']),
 });
 // 映射dispatch到props上
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     getBannerDataDispatch() {
       dispatch(actionTypes.getBannerList());

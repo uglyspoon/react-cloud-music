@@ -6,7 +6,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  bottom: ${props => (props.play > 0 ? '60px' : 0)};
+  bottom: ${(props) => (props.play > 0 ? '60px' : 0)};
   width: 100%;
   z-index: 100;
   overflow: hidden;
@@ -42,7 +42,7 @@ export const TopDesc = styled.div`
   z-index: 100;
   .background{
     /* z-index: -1; */
-    background: url(${props => props.background}) left top no-repeat;
+    background: url(${(props) => props.background}) left top no-repeat;
 
     position: absolute;
     width: 100%;

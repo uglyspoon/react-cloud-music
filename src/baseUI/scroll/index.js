@@ -131,7 +131,7 @@ const Scroll = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (!bScroll || !onScroll) return;
-    bScroll.on('scroll', scroll => {
+    bScroll.on('scroll', (scroll) => {
       onScroll(scroll);
     });
     return () => {
@@ -154,7 +154,7 @@ const Scroll = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (!bScroll || !pullDown) return;
-    bScroll.on('touchEnd', pos => {
+    bScroll.on('touchEnd', (pos) => {
       //判断用户的下拉动作
       if (pos.y > 50) {
         pullDownDebounce();

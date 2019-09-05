@@ -4,7 +4,7 @@ import { VcodeBox, Container } from './style';
 const maxLength = 4;
 const sentPeriod = 60;
 let theTimer;
-const StepTwo = props => {
+const StepTwo = (props) => {
   const { phone, triggerLogin, reSentVcode } = props;
   const [cursorIndex, setCursorIndex] = useState(0);
   const [vcode, setVcode] = useState('');
@@ -19,7 +19,7 @@ const StepTwo = props => {
       return;
     }
     theTimer = setInterval(() => {
-      setTimer(timer => timer - 1);
+      setTimer((timer) => timer - 1);
     }, 1000);
   }, [timer]);
 
@@ -29,7 +29,7 @@ const StepTwo = props => {
     }
   }, [vcode, triggerLogin]);
 
-  const onChangeVcode = e => {
+  const onChangeVcode = (e) => {
     if (!e.target.value) return;
     const val = e.target.value;
     setVcode(val);

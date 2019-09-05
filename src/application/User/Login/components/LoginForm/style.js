@@ -10,9 +10,9 @@ export const FormContainer = styled.div`
   flex: 2;
 `;
 export const Button = styled.span`
-  background: ${props =>
+  background: ${(props) =>
     props.background ? `${props.background}` : `${global['official-red']}`};
-  color: ${props =>
+  color: ${(props) =>
     props.color ? `${props.color}` : `${global['official-red']}`};
   height: 50px;
   line-height: 50px;

@@ -2,11 +2,11 @@
 import React, { forwardRef } from 'react';
 import { Button, BeautyCheckBox, OtherLoginLink, FormContainer } from './style';
 
-const noEffect = e => e.preventDefault();
+const noEffect = (e) => e.preventDefault();
 
 const LoginForm = forwardRef((props, ref) => {
   const { jumpToLogin, setAgreed, jumpToIndex } = props;
-  const onChangeChecked = e => {
+  const onChangeChecked = (e) => {
     setAgreed(e.target.checked);
   };
   const loginViaThirdApi = () => {
@@ -16,7 +16,7 @@ const LoginForm = forwardRef((props, ref) => {
     <FormContainer>
       <Button
         background='#fff'
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
           jumpToLogin('phone');
         }}
