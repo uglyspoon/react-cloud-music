@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseUrl = "http://localhost:3300";
+export const baseUrl = "https://uglyspoon.com/api/netease/";
 
 // axios的实例及拦截器配置
 const axiosInstance = axios.create({
@@ -237,18 +237,18 @@ export const list = [
   },
   {
     key: 1,
-    name:"x1"
-  }, 
+    name: "x1"
+  },
   {
     key: 1.25,
-    name:"x1.25"
-  }, 
+    name: "x1.25"
+  },
   {
     key: 1.5,
-    name:"x1.5"
-  }, 
+    name: "x1.5"
+  },
   {
     key: 2,
-    name:"x2"
+    name: "x2"
   }
 ]

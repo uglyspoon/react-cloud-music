@@ -54,10 +54,10 @@ const StepTwo = props => {
         {timer ? (
           <span>{timer}S</span>
         ) : (
-          <span className="sentBtn" onClick={onClickSentVcode}>
-            重新发送
+            <span className="sentBtn" onClick={onClickSentVcode}>
+              重新发送
           </span>
-        )}
+          )}
       </p>
       <VcodeBox>
         <h2 className="heading-2">验证码:</h2>
